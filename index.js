@@ -34,9 +34,13 @@ app.get("*", function (req, res) {
 });
 
 
+try{
+    mongoose.connect(mongoUri);
+}catch(e){
+    console.log("error")
+}
 
-mongoose.connect(mongoUri).then(()=>{
+
     app.listen(PORT,()=>{
         console.log("app started",PORT);
     })
-})
